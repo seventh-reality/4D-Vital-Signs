@@ -29,6 +29,10 @@
           <img src="ar_hand_prompt.png">
       </div>
     </model-viewer> 
+	const embedSDK = new OnirixEmbedSDK();
+await embedSDK.connect();
+
+embedSDK.loadSurfacePlaceholder("https://webar-examples.com/ox-placeholder_bn.png");    
      <section class="attributiontwo">
        <p style="background-image: url('black.png')" style="width:60px;height:60px; padding-left: 0px;padding-top: 10px;">
       
@@ -67,5 +71,6 @@
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+	<script import OnirixEmbedSDK from "https://unpkg.com/@onirix/embed-sdk@1.9.0/dist/ox-embed-sdk.esm.js";></script>  
   </body>
 </html>
