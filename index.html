@@ -1,105 +1,91 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <title>VITAL SIGNS MONITOR</title>
     <meta charset="utf-8">
-    <meta name="description" content="3D model viewer with AR capabilities">
+    <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-</head>
-<body>
+  </head>
+  <body>
     <div id="card">
-        <!-- <model-viewer> HTML element -->
-        <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb"  
-                      ar ar-modes="webxr scene-viewer quick-look" 
-                      camera-controls poster="loading.gif" 
-                      shadow-intensity="0.88" shadow-softness="1" exposure="1">
-            <div class="progress-bar hide" slot="progress-bar">
-                <div class="update-bar"></div>
-            </div>
-            <button slot="ar-button" id="ar-button">View in 4D</button>
-            <div id="button" style="display: flex; justify-content: space-between;">
-                <img src="4.png" alt="Image 4" style="width:100px; padding-left: 5px;">
-                <img src="iitname.png" alt="IIT Name" style="width:100px; padding-right: 0;">
-            </div>
-            <div id="ar-prompt">
-                <img src="ar_hand_prompt.png" alt="AR Hand Prompt">
-            </div>
-            <!-- Adding interactive 3D buttons -->
-            <model-viewer id="button1" src="VITAL SIGNS MONITOR (1).glb" style="width: 50px; height: 50px; position: absolute; top: 10%; left: 10%;">
-                <button slot="ar-button" id="button1-action">Button 1 Action</button>
-            </model-viewer>
-            <model-viewer id="button2" src="VITAL SIGNS MONITOR (1).glb" style="width: 50px; height: 50px; position: absolute; top: 10%; left: 20%;">
-                <button slot="ar-button" id="button2-action">Button 2 Action</button>
-            </model-viewer>
-            <model-viewer id="button3" src="VITAL SIGNS MONITOR (1).glb" style="width: 50px; height: 50px; position: absolute; top: 10%; left: 30%;">
-                <button slot="ar-button" id="button3-action">Button 3 Action</button>
-            </model-viewer>
-        </model-viewer> 
-        <section class="attributiontwo">
-            <p style="background-image: url('black.png'); width:60px; height:60px; padding-left: 0; padding-top: 10px;">
-                <span>
-                    <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing">
-                        <img src="Broucher_1.png" id="youtube-icon" alt="Brochure" style="width:30px;height:40px; padding-left: 17px;">
-                    </a>
-                    <a href="https://youtu.be/feR4lDjrLt8">
-                        <img src="Video_1.png" id="youtube-icon" alt="Video" style="width:30px;height:40px; padding-left: 20px;">
-                    </a>
-                    <a href="https://seventh-reality.com/">
-                        <img src="web_1.png" id="youtube-icon" alt="Website" style="width:30px;height:40px; padding-left: 20px;">
-                    </a>
-                    <a href="https://forms.gle/nPU6KsDggsqnVopt6">
-                        <img src="form_1.png" id="youtube-icon" alt="Form" style="width:30px;height:40px; padding-left: 20px;">
-                    </a>
-                    <a href="https://drive.google.com/file/d/1hFf5OK8XdV_q6UZ7WFcwiR3xrxWkUQ4Z/view?usp=sharing">
-                        <img src="analytics_1.png" id="youtube-icon" alt="Analytics" style="width:30px;height:40px; padding-left: 20px;">
-                    </a>
-                    <h5>CLICK ON THE ABOVE ICONS FOR MORE FEATURES</h5>
-                </span>
-                <style>
-                    h5 {
-                        text-align: center;
-                        margin-top: -5px;
-                        font-size: 9px;
-                    }
-                </style>
-            </section>
+      <!-- Main 3D model viewer -->
+      <model-viewer id="main-model" src="VITAL SIGNS MONITOR (1).glb" 
+                    ar ar-modes="webxr scene-viewer quick-look" 
+                    camera-controls poster="loading.gif" 
+                    shadow-intensity="0.88" shadow-softness="1" 
+                    exposure="1">
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
         </div>
-	<script document.addEventListener('DOMContentLoaded', () => {
-    // Assuming you have 3D buttons with IDs `button1`, `button2`, and `button3`
-    const button1 = document.querySelector('#button1');
-    const button2 = document.querySelector('#button2');
-    const button3 = document.querySelector('#button3');
-
-    // Add event listeners for 3D buttons
-    button1.addEventListener('click', () => {
-        alert('Button 1 clicked');
-        // Add more functionality here
-    });
-
-    button2.addEventListener('click', () => {
-        alert('Button 2 clicked');
-        // Add more functionality here
-    });
-
-    button3.addEventListener('click', () => {
-        alert('Button 3 clicked');
-        // Add more functionality here
-    });
-});></script
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KT66XCPP9K"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-KT66XCPP9K');
-        </script>
-        <script src="script.js"></script>
-        <script type="module" src="model-viewer.min.js"></script>
-    </body>
+        <button slot="ar-button" id="ar-button">View in 4D</button>
+        <div id="button" style="display:flex; justify-content: space-between;">
+            <img src="4.png" alt="Image 4" style="width:100px; padding-left: 5px;">
+            <img src="iitname.png" alt="IIT Name" style="width:100px; padding-right: 0;">
+        </div>     
+        <div id="ar-prompt">
+            <img src="ar_hand_prompt.png" alt="AR Hand Prompt">
+        </div>
+        <!-- Interactive 3D Buttons -->
+        <div id="button-container">
+          <model-viewer id="button1" src="button1.glb" 
+                        style="width: 60px; height: 60px; position: absolute; top: 10%; left: 10%;"
+                        interaction-prompt="none">
+            <button slot="ar-button" id="button1-action">Button 1</button>
+          </model-viewer>
+          <model-viewer id="button2" src="button2.glb" 
+                        style="width: 60px; height: 60px; position: absolute; top: 10%; left: 20%;"
+                        interaction-prompt="none">
+            <button slot="ar-button" id="button2-action">Button 2</button>
+          </model-viewer>
+          <model-viewer id="button3" src="button3.glb" 
+                        style="width: 60px; height: 60px; position: absolute; top: 10%; left: 30%;"
+                        interaction-prompt="none">
+            <button slot="ar-button" id="button3-action">Button 3</button>
+          </model-viewer>
+        </div>
+      </model-viewer>
+      <section class="attributiontwo">
+        <p style="background-image: url('black.png'); width:60px; height:60px; padding-left: 0; padding-top: 10px;">
+          <span>
+            <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing">
+              <img src="Broucher_1.png" id="youtube-icon" alt="Brochure" style="width:30px;height:40px; padding-left: 17px;">
+            </a>
+            <a href="https://youtu.be/feR4lDjrLt8">
+              <img src="Video_1.png" id="youtube-icon" alt="Video" style="width:30px;height:40px; padding-left: 20px;">
+            </a>
+            <a href="https://seventh-reality.com/">
+              <img src="web_1.png" id="youtube-icon" alt="Website" style="width:30px;height:40px; padding-left: 20px;">
+            </a>
+            <a href="https://forms.gle/nPU6KsDggsqnVopt6">
+              <img src="form_1.png" id="youtube-icon" alt="Form" style="width:30px;height:40px; padding-left: 20px;">
+            </a>
+            <a href="https://drive.google.com/file/d/1hFf5OK8XdV_q6UZ7WFcwiR3xrxWkUQ4Z/view?usp=sharing">
+              <img src="analytics_1.png" id="youtube-icon" alt="Analytics" style="width:30px;height:40px; padding-left: 20px;">
+            </a>
+            <h5>CLICK ON THE ABOVE ICONS FOR MORE FEATURES</h5>
+          </span>
+          <style>
+            h5 {
+              text-align: center;
+              margin-top: -5px;
+              font-size: 9px;
+            }
+          </style>
+        </section>
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KT66XCPP9K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KT66XCPP9K');
+    </script>
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="model-viewer.min.js"></script>
+  </body>
 </html>
