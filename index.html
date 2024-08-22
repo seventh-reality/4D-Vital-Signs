@@ -8,17 +8,9 @@
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <style>
-      #labels {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-      }
+      /* Style for the labels */
       .label {
         position: absolute;
         background: rgba(0, 0, 0, 0.7);
@@ -32,28 +24,27 @@
       .label.visible {
         display: block;
       }
+      .label.hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <div id="card">
-      <!-- Main 3D model viewer -->
-      <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb"  
-                    ar ar-modes="webxr scene-viewer quick-look" 
-                    camera-controls poster="loading.gif" 
-                    shadow-intensity="0.88" shadow-softness="1" 
-                    exposure="1">
+      <!-- <model-viewer> HTML element -->
+      <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb"  ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="loading.gif"  shadow-intensity="0.88" shadow-softness="1" exposure="1">
         <div class="progress-bar hide" slot="progress-bar">
             <div class="update-bar"></div>
         </div>
         <button slot="ar-button" id="ar-button">View in 4D</button>
         <div id="button" style="display:flex; justify-content: space-between;">
-            <img src="4.png" alt="Image 4" style="width:100px; padding-left: 5px;">
-            <img src="iitname.png" alt="IIT Name" style="width:100px; padding-right: 0;">
+          <img src="4.png" align="center" style="width:100px; padding-left: 5px; padding-top: 0px;"/>
+          <img src="iitname.png" style="width:100px; padding-right: 0px; padding-top: 0px;"/>    
         </div>     
         <div id="ar-prompt">
-            <img src="ar_hand_prompt.png" alt="AR Hand Prompt">
+          <img src="ar_hand_prompt.png">
         </div>
-      </model-viewer>
+      </model-viewer> 
       
       <!-- Labels container -->
       <div id="labels">
@@ -63,22 +54,22 @@
       </div>
       
       <section class="attributiontwo">
-        <p style="background-image: url('black.png'); width:60px; height:60px; padding-left: 0; padding-top: 10px;">
+        <p style="background-image: url('black.png'); width:60px; height:60px; padding-left: 0px; padding-top: 10px;">
           <span>
             <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing">
-              <img src="Broucher_1.png" id="youtube-icon" alt="Brochure" style="width:30px;height:40px; padding-left: 17px;">
+              <img src="Broucher_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 17px;padding-top: 0px;">
             </a>
             <a href="https://youtu.be/feR4lDjrLt8">
-              <img src="Video_1.png" id="youtube-icon" alt="Video" style="width:30px;height:40px; padding-left: 20px;">
+              <img src="Video_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; ">
             </a>
             <a href="https://seventh-reality.com/">
-              <img src="web_1.png" id="youtube-icon" alt="Website" style="width:30px;height:40px; padding-left: 20px;">
+              <img src="web_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; ">
             </a>
             <a href="https://forms.gle/nPU6KsDggsqnVopt6">
-              <img src="form_1.png" id="youtube-icon" alt="Form" style="width:30px;height:40px; padding-left: 20px;">
+              <img src="form_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;">
             </a>
             <a href="https://drive.google.com/file/d/1hFf5OK8XdV_q6UZ7WFcwiR3xrxWkUQ4Z/view?usp=sharing">
-              <img src="analytics_1.png" id="youtube-icon" alt="Analytics" style="width:30px;height:40px; padding-left: 20px;">
+              <img src="analytics_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;">
             </a>
             <h5>CLICK ON THE ABOVE ICONS FOR MORE FEATURES</h5>
           </span>
@@ -88,9 +79,10 @@
               margin-top: -5px;
               font-size: 9px;
             }
-          </style>
+          </style>  
         </section>
     </div>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KT66XCPP9K"></script>
     <script>
@@ -102,53 +94,41 @@
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="model-viewer.min.js"></script>
-    <!-- Include three.js script -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // Initialize Three.js scene
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+        // Access the model-viewer element
+        const modelViewer = document.querySelector('#toggle-model');
 
-        // Add orbit controls
-        const controls = new THREE.OrbitControls(camera, renderer.domElement);
-        camera.position.z = 5;
-
-        // Labels positioning
+        // Labels
         const labels = {
           label1: document.getElementById('label1'),
           label2: document.getElementById('label2'),
           label3: document.getElementById('label3')
         };
 
-        // Function to update label positions
-        function updateLabels() {
-          // Assuming some positions for labels, update as needed
-          const positions = {
-            label1: new THREE.Vector3(1, 1, 1),
-            label2: new THREE.Vector3(-1, -1, 1),
-            label3: new THREE.Vector3(0, 0, -1)
-          };
+        // Example: Show labels when model-viewer is loaded
+        modelViewer.addEventListener('load', () => {
+          // Simulate the pop-in and pop-out effect
+          setTimeout(() => {
+            labels.label1.classList.add('visible');
+            labels.label2.classList.add('visible');
+            labels.label3.classList.add('visible');
+          }, 1000); // Delay for demonstration
 
-          Object.keys(labels).forEach(key => {
-            const label = labels[key];
-            // Simulate label positions (replace with your actual 3D model coordinates)
-            label.style.left = `${(positions[key].x + 1) * 50}%`;
-            label.style.top = `${(positions[key].y + 1) * 50}%`;
-            label.style.opacity = Math.max(0, 1 - Math.abs(positions[key].z / 2));
-          });
-        }
+          setTimeout(() => {
+            labels.label1.classList.remove('visible');
+            labels.label2.classList.remove('visible');
+            labels.label3.classList.remove('visible');
+          }, 5000); // Hide after some time
+        });
 
-        // Render loop
-        function animate() {
-          requestAnimationFrame(animate);
-          controls.update();
-          renderer.render(scene, camera);
-          updateLabels();
-        }
-        animate();
+        // Adjust the label positions based on user interactions or model position
+        modelViewer.addEventListener('ar-status', (event) => {
+          if (event.detail.status === 'found') {
+            // Example code to show labels based on AR status
+            labels.label1.classList.add('visible');
+          }
+        });
       });
     </script>
   </body>
