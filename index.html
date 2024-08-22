@@ -30,17 +30,17 @@
         </div>
         <!-- Interactive 3D Buttons -->
         <div id="button-container">
-          <model-viewer id="button1" src="button1.glb" 
+          <model-viewer id="button1" src="VITAL SIGNS MONITOR (1).glb" 
                         style="width: 60px; height: 60px; position: absolute; top: 10%; left: 10%;"
                         interaction-prompt="none">
             <button slot="ar-button" id="button1-action">Button 1</button>
           </model-viewer>
-          <model-viewer id="button2" src="button2.glb" 
+          <model-viewer id="button2" src="VITAL SIGNS MONITOR (1).glb" 
                         style="width: 60px; height: 60px; position: absolute; top: 10%; left: 20%;"
                         interaction-prompt="none">
             <button slot="ar-button" id="button2-action">Button 2</button>
           </model-viewer>
-          <model-viewer id="button3" src="button3.glb" 
+          <model-viewer id="button3" src="VITAL SIGNS MONITOR (1).glb" 
                         style="width: 60px; height: 60px; position: absolute; top: 10%; left: 30%;"
                         interaction-prompt="none">
             <button slot="ar-button" id="button3-action">Button 3</button>
@@ -76,6 +76,29 @@
           </style>
         </section>
     </div>
+    <script document.addEventListener('DOMContentLoaded', () => {
+    // Get interactive buttons
+    const button1 = document.querySelector('#button1-action');
+    const button2 = document.querySelector('#button2-action');
+    const button3 = document.querySelector('#button3-action');
+
+    // Add event listeners for each button
+    button1.addEventListener('click', () => {
+        alert('Button 1 clicked');
+        // Add your custom functionality here
+    });
+
+    button2.addEventListener('click', () => {
+        alert('Button 2 clicked');
+        // Add your custom functionality here
+    });
+
+    button3.addEventListener('click', () => {
+        alert('Button 3 clicked');
+        // Add your custom functionality here
+    });
+});
+</script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KT66XCPP9K"></script>
     <script>
