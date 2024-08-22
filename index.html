@@ -1,211 +1,71 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <title>VITAL SIGNS MONITOR</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
+     <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+  </head>
+  <body>
     <div id="card">
-        <!-- <model-viewer> HTML element -->
-        <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="loading.gif" shadow-intensity="0.88" shadow-softness="1" exposure="1">
-            <div class="progress-bar hide" slot="progress-bar">
-                <div class="update-bar"></div>
-            </div>
-            <button slot="ar-button" id="ar-button">View in 4D</button>
-            <div id="button" style="display:flex; justify-content: space-between;">
-                <img src="4.png" align="center" style="width:100px; padding-left: 5px; padding-top: 0px;"/>
-                <img src="iitname.png" style="width:100px; padding-right: 0px; padding-top: 0px;"/>
-            </div>
-            <div id="ar-prompt">
-                <img src="ar_hand_prompt.png">
-            </div>
-        </model-viewer>
-        <section class="attributiontwo">
-            <p style="background-image: url('black.png'); width:60px; height:60px; padding-left: 0px; padding-top: 10px;">
-                <span>
-                    <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing">
-                        <img src="Broucher_1.png" id="youtube-icon" align="center" style="width:30px; height:40px; padding-left: 17px; padding-top: 0px;">
-                    </a>
-                    <a href="https://youtu.be/feR4lDjrLt8">
-                        <img src="Video_1.png" id="youtube-icon" align="center" style="width:30px; height:40px; padding-left: 20px; padding-top: 0px;">
-                    </a>
-                    <a href="https://seventh-reality.com/">
-                        <img src="web_1.png" id="youtube-icon" align="center" style="width:30px; height:40px; padding-left: 20px; padding-top: 0px;">
-                    </a>
-                    <a href="https://forms.gle/nPU6KsDggsqnVopt6">
-                        <img src="form_1.png" id="youtube-icon" align="center" style="width:30px; height:40px; padding-left: 20px; padding-top: 0px;">
-                    </a>
-                    <a href="https://drive.google.com/file/d/1hFf5OK8XdV_q6UZ7WFcwiR3xrxWkUQ4Z/view?usp=sharing">
-                        <img src="analytics_1.png" id="youtube-icon" align="center" style="width:30px; height:40px; padding-left: 20px; padding-top: 0px;">
-                    </a>
-                    <h5>CLICK ON THE ABOVE ICONS FOR MORE FEATURES</h5>
-                </span>
-            </p>
-            <style>
-                h5 {
-                    text-align: center;
-                    margin-top: -5px;
-                    font-size: 9px;
-                }
-            </style>
-        </section>
-    </div>
+    <!-- <model-viewer> HTML element -->
+    <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb"  ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="loading.gif"  shadow-intensity="0.88" shadow-softness="1" exposure="1">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+        View in 4D
+    </button>
+       <div id="button" style = "display:flex; justify-content: space-between;">
+          <img src="4.png"  align="center" style="width:100px;  padding-left: 5px;padding-top: 0px;"/>
+	  <img src="iitname.png"  style="width:100px;  padding-right: 0px;padding-top: 0px;"/>    
+      </div>     
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </model-viewer> 
+     <section class="attributiontwo">
+       <p style="background-image: url('black.png')" style="width:60px;height:60px; padding-left: 0px;padding-top: 10px;">
+      
+      <span>
+        
+        <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing"><img src="Broucher_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 17px;padding-top: 0px;"></a>
+        <a href="https://youtu.be/feR4lDjrLt8"><img src="Video_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; "></a>
+        <a href="https://seventh-reality.com/"><img src="web_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; "></a>
+        <a href="https://forms.gle/nPU6KsDggsqnVopt6"><img src="form_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
+        <a href="https://drive.google.com/file/d/1hFf5OK8XdV_q6UZ7WFcwiR3xrxWkUQ4Z/view?usp=sharing"><img src="analytics_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
+        <h5>CLICK ON THE ABOVE ICONS FOR MORE FEATURES</h5>
+      </span>
+         <style>
+       h5 {
+       text-align: center;
+       margin-top:-5px; 
+       
+       
+       font-size: 9px;
+         }
+          
+   </style>  
+   
+    </section>
+      
+       </div>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KT66XCPP9K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KT66XCPP9K"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-KT66XCPP9K');
-    </script>
+  gtag('config', 'G-KT66XCPP9K');
+</script>
     <script src="script.js"></script>
-
-    <!-- Loads <model-viewer> for browsers -->
+    <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="model-viewer.min.js"></script>
-    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.1/dist/es-module-shims.js" crossorigin="anonymous"></script>
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
-            }
-        }
-    </script>
-    <script type="module">
-        import * as THREE from "three";
-        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-        import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-
-        // General setup
-        console.clear();
-
-        var scene = new THREE.Scene();
-        scene.background = new THREE.Color('gainsboro');
-
-        var camera = new THREE.PerspectiveCamera(30, innerWidth / innerHeight, 1, 20);
-        camera.position.set(0, 3, 7);
-        camera.lookAt(scene.position);
-
-        var renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(innerWidth, innerHeight);
-        renderer.setAnimationLoop(animationLoop);
-        document.body.appendChild(renderer.domElement);
-
-        window.addEventListener("resize", (event) => {
-            camera.aspect = innerWidth / innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(innerWidth, innerHeight);
-        });
-
-        var controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.autoRotate = true;
-        controls.enableZoom = false;
-        controls.enablePan = false;
-
-        renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
-
-        var light = new THREE.DirectionalLight('white', 3);
-        scene.add(light);
-
-        // Load a GLTF model
-        var modelURL = 'https://boytchev.github.io/suica/assets/models/cars/tractor.glb';
-        var model;
-
-        var loader = new GLTFLoader();
-        loader.load(modelURL, gltf => {
-            model = gltf.scene;
-            model.position.y = -0.5;
-
-            // Fix material (metalness must be 0)
-            model.traverse(child => {
-                if (child.isMesh) {
-                    child.material.metalness = 0;
-                }
-            });
-
-            scene.add(model);
-        });
-
-        var pos = [
-            new THREE.Vector3(0, 1.8, 0),
-            new THREE.Vector3(0, -0.2, 0),
-            new THREE.Vector3(-1, 0.5, 0),
-            new THREE.Vector3(1, 0.5, 0),
-            new THREE.Vector3(0, 0.5, -1),
-            new THREE.Vector3(0, 0.5, 1),
-        ];
-
-        var labels = document.querySelectorAll('.label');
-        var v = new THREE.Vector3();
-
-        function animationLoop(t) {
-            controls.update();
-
-            if (model) {
-                for (var i = 0; i < 6; i++) {
-                    v.copy(pos[i]);
-                    model.localToWorld(v);
-                    v.project(camera);
-
-                    var x = (1 + v.x) / 2 * innerWidth - 50;
-                    var y = (1 - v.y) / 2 * innerHeight;
-
-                    labels[i].style.display = v.z < 0.84 ? 'block' : 'none';
-                    labels[i].style.left = x + 'px';
-                    labels[i].style.top = y + 'px';
-                }
-                light.position.copy(camera.position);
-            }
-            renderer.render(scene, camera);
-        }
-    </script>
-
-    <div class="label">Top</div>
-    <div class="label">Bottom</div>
-    <div class="label">Left</div>
-    <div class="label">Right</div>
-    <div class="label">Front</div>
-    <div class="label">Back</div>
-
-    <div style="text-align:center; padding-top: 1em; position: absolute; width: 100%">
-        Rotate the tractor
-    </div>
-
-    <style>
-        body {
-            overflow: hidden;
-            margin: 0;
-            text-align: center;
-        }
-
-        .label {
-            position: absolute;
-            font-size: 1.5em;
-            font-family: 'Arial Black', Gadget, sans-serif;
-            font-weight: bold;
-            color: orange;
-            -webkit-text-stroke: 1px black;
-            background-color: transparent;
-            z-index: 10;
-            width: 100px;
-            border: dotted 1px orange;
-            border-radius: 5px;
-            background: rgba(100%, 70%, 0%, 20%);
-        }
-
-        .label:hover {
-            border-color: black;
-            background: rgba(100%, 100%, 100%, 50%);
-            color: white;
-            cursor: pointer;
-        }
-    </style>
-</body>
+	 
+  </body>
 </html>
