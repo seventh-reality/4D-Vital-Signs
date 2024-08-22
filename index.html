@@ -10,34 +10,42 @@
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <style>
-      /* Style for the labels */
+      body {
+        overflow: hidden;
+        margin: 0;
+        text-align: center;
+      }
       .label {
         position: absolute;
-        background: rgba(0, 0, 0, 0.7);
-        color: #fff;
-        padding: 5px;
-        border-radius: 3px;
-        font-size: 12px;
-        display: none;
-        transition: opacity 0.3s ease;
+        font-size: 1.5em;
+        font-family: 'Arial Black', Gadget, sans-serif;
+        font-weight: bold;
+        color: orange;
+        -webkit-text-stroke: 1px black;
+        background-color: transparent;
+        z-index: 10;
+        width: 100px;
+        border: dotted 1px orange;
+        border-radius: 5px;
+        background: rgba(100%, 70%, 0%, 20%);
       }
-      .label.visible {
-        display: block;
-      }
-      .label.hidden {
-        display: none;
+      .label:hover {
+        border-color: black;
+        background: rgba(100%, 100%, 100%, 50%);
+        color: white;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
     <div id="card">
       <!-- <model-viewer> HTML element -->
-      <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb"  ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="loading.gif"  shadow-intensity="0.88" shadow-softness="1" exposure="1">
+      <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="loading.gif" shadow-intensity="0.88" shadow-softness="1" exposure="1">
         <div class="progress-bar hide" slot="progress-bar">
-            <div class="update-bar"></div>
+          <div class="update-bar"></div>
         </div>
         <button slot="ar-button" id="ar-button">View in 4D</button>
-        <div id="button" style="display:flex; justify-content: space-between;">
+        <div id="button" style="display: flex; justify-content: space-between;">
           <img src="4.png" align="center" style="width:100px; padding-left: 5px; padding-top: 0px;"/>
           <img src="iitname.png" style="width:100px; padding-right: 0px; padding-top: 0px;"/>    
         </div>     
@@ -48,9 +56,12 @@
       
       <!-- Labels container -->
       <div id="labels">
-        <div id="label1" class="label">Label 1</div>
-        <div id="label2" class="label">Label 2</div>
-        <div id="label3" class="label">Label 3</div>
+        <div class="label" id="label1">Top</div>
+        <div class="label" id="label2">Bottom</div>
+        <div class="label" id="label3">Left</div>
+        <div class="label" id="label4">Right</div>
+        <div class="label" id="label5">Front</div>
+        <div class="label" id="label6">Back</div>
       </div>
       
       <section class="attributiontwo">
@@ -60,10 +71,10 @@
               <img src="Broucher_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 17px;padding-top: 0px;">
             </a>
             <a href="https://youtu.be/feR4lDjrLt8">
-              <img src="Video_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; ">
+              <img src="Video_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;">
             </a>
             <a href="https://seventh-reality.com/">
-              <img src="web_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; ">
+              <img src="web_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;">
             </a>
             <a href="https://forms.gle/nPU6KsDggsqnVopt6">
               <img src="form_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;">
@@ -94,40 +105,65 @@
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="model-viewer.min.js"></script>
-    <script>
+    <script type="module">
+      import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
+      
       document.addEventListener('DOMContentLoaded', () => {
-        // Access the model-viewer element
         const modelViewer = document.querySelector('#toggle-model');
+        const labels = document.querySelectorAll('.label');
+        
+        // Initialize Three.js
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+        
+        let controls;
+        let model;
+        const pos = [
+          new THREE.Vector3(0, 1.8, 0),
+          new THREE.Vector3(0, -0.2, 0),
+          new THREE.Vector3(-1, 0.5, 0),
+          new THREE.Vector3(1, 0.5, 0),
+          new THREE.Vector3(0, 0.5, -1),
+          new THREE.Vector3(0, 0.5, 1)
+        ];
 
-        // Labels
-        const labels = {
-          label1: document.getElementById('label1'),
-          label2: document.getElementById('label2'),
-          label3: document.getElementById('label3')
-        };
-
-        // Example: Show labels when model-viewer is loaded
+        // Function to handle the model loading
         modelViewer.addEventListener('load', () => {
-          // Simulate the pop-in and pop-out effect
-          setTimeout(() => {
-            labels.label1.classList.add('visible');
-            labels.label2.classList.add('visible');
-            labels.label3.classList.add('visible');
-          }, 1000); // Delay for demonstration
+          // Add your model loading and scene setup here
 
-          setTimeout(() => {
-            labels.label1.classList.remove('visible');
-            labels.label2.classList.remove('visible');
-            labels.label3.classList.remove('visible');
-          }, 5000); // Hide after some time
+          // Set up animation loop
+          function animationLoop() {
+            requestAnimationFrame(animationLoop);
+            // Update your controls here if using any
+            // controls.update();
+            
+            if (model) {
+              for (let i = 0; i < pos.length; i++) {
+                const v = pos[i].clone();
+                model.localToWorld(v);
+                v.project(camera);
+
+                const x = (1 + v.x) / 2 * window.innerWidth - 50;
+                const y = (1 - v.y) / 2 * window.innerHeight;
+
+                labels[i].style.display = v.z < 0.84 ? 'block' : 'none';
+                labels[i].style.left = `${x}px`;
+                labels[i].style.top = `${y}px`;
+              }
+            }
+            renderer.render(scene, camera);
+          }
+          
+          animationLoop();
         });
 
-        // Adjust the label positions based on user interactions or model position
-        modelViewer.addEventListener('ar-status', (event) => {
-          if (event.detail.status === 'found') {
-            // Example code to show labels based on AR status
-            labels.label1.classList.add('visible');
-          }
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
         });
       });
     </script>
