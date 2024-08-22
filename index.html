@@ -6,66 +6,150 @@
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
-     <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.js"></script>
+    <style>
+      #labels {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .label {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 12px;
+        display: none;
+        transition: opacity 0.3s ease;
+      }
+      .label.visible {
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <div id="card">
-    <!-- <model-viewer> HTML element -->
-    <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb"  ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="loading.gif"  shadow-intensity="0.88" shadow-softness="1" exposure="1">
-      <div class="progress-bar hide" slot="progress-bar">
-          <div class="update-bar"></div>
-      </div>
-      <button slot="ar-button" id="ar-button">
-        View in 4D
-    </button>
-       <div id="button" style = "display:flex; justify-content: space-between;">
-          <img src="4.png"  align="center" style="width:100px;  padding-left: 5px;padding-top: 0px;"/>
-	  <img src="iitname.png"  style="width:100px;  padding-right: 0px;padding-top: 0px;"/>    
-      </div>     
-      <div id="ar-prompt">
-          <img src="ar_hand_prompt.png">
-      </div>
-    </model-viewer> 
-     <section class="attributiontwo">
-       <p style="background-image: url('black.png')" style="width:60px;height:60px; padding-left: 0px;padding-top: 10px;">
+      <!-- Main 3D model viewer -->
+      <model-viewer id="toggle-model" src="VITAL SIGNS MONITOR (1).glb"  
+                    ar ar-modes="webxr scene-viewer quick-look" 
+                    camera-controls poster="loading.gif" 
+                    shadow-intensity="0.88" shadow-softness="1" 
+                    exposure="1">
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+        </div>
+        <button slot="ar-button" id="ar-button">View in 4D</button>
+        <div id="button" style="display:flex; justify-content: space-between;">
+            <img src="4.png" alt="Image 4" style="width:100px; padding-left: 5px;">
+            <img src="iitname.png" alt="IIT Name" style="width:100px; padding-right: 0;">
+        </div>     
+        <div id="ar-prompt">
+            <img src="ar_hand_prompt.png" alt="AR Hand Prompt">
+        </div>
+      </model-viewer>
       
-      <span>
-        
-        <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing"><img src="Broucher_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 17px;padding-top: 0px;"></a>
-        <a href="https://youtu.be/feR4lDjrLt8"><img src="Video_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; "></a>
-        <a href="https://seventh-reality.com/"><img src="web_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; "></a>
-        <a href="https://forms.gle/nPU6KsDggsqnVopt6"><img src="form_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
-        <a href="https://drive.google.com/file/d/1hFf5OK8XdV_q6UZ7WFcwiR3xrxWkUQ4Z/view?usp=sharing"><img src="analytics_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
-        <h5>CLICK ON THE ABOVE ICONS FOR MORE FEATURES</h5>
-      </span>
-         <style>
-       h5 {
-       text-align: center;
-       margin-top:-5px; 
-       
-       
-       font-size: 9px;
-         }
-          
-   </style>  
-   
-    </section>
+      <!-- Labels container -->
+      <div id="labels">
+        <div id="label1" class="label">Label 1</div>
+        <div id="label2" class="label">Label 2</div>
+        <div id="label3" class="label">Label 3</div>
+      </div>
       
-       </div>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KT66XCPP9K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KT66XCPP9K');
-</script>
+      <section class="attributiontwo">
+        <p style="background-image: url('black.png'); width:60px; height:60px; padding-left: 0; padding-top: 10px;">
+          <span>
+            <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing">
+              <img src="Broucher_1.png" id="youtube-icon" alt="Brochure" style="width:30px;height:40px; padding-left: 17px;">
+            </a>
+            <a href="https://youtu.be/feR4lDjrLt8">
+              <img src="Video_1.png" id="youtube-icon" alt="Video" style="width:30px;height:40px; padding-left: 20px;">
+            </a>
+            <a href="https://seventh-reality.com/">
+              <img src="web_1.png" id="youtube-icon" alt="Website" style="width:30px;height:40px; padding-left: 20px;">
+            </a>
+            <a href="https://forms.gle/nPU6KsDggsqnVopt6">
+              <img src="form_1.png" id="youtube-icon" alt="Form" style="width:30px;height:40px; padding-left: 20px;">
+            </a>
+            <a href="https://drive.google.com/file/d/1hFf5OK8XdV_q6UZ7WFcwiR3xrxWkUQ4Z/view?usp=sharing">
+              <img src="analytics_1.png" id="youtube-icon" alt="Analytics" style="width:30px;height:40px; padding-left: 20px;">
+            </a>
+            <h5>CLICK ON THE ABOVE ICONS FOR MORE FEATURES</h5>
+          </span>
+          <style>
+            h5 {
+              text-align: center;
+              margin-top: -5px;
+              font-size: 9px;
+            }
+          </style>
+        </section>
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KT66XCPP9K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KT66XCPP9K');
+    </script>
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="model-viewer.min.js"></script>
-	 
+    <!-- Include three.js script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Three.js scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Add orbit controls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        camera.position.z = 5;
+
+        // Labels positioning
+        const labels = {
+          label1: document.getElementById('label1'),
+          label2: document.getElementById('label2'),
+          label3: document.getElementById('label3')
+        };
+
+        // Function to update label positions
+        function updateLabels() {
+          // Assuming some positions for labels, update as needed
+          const positions = {
+            label1: new THREE.Vector3(1, 1, 1),
+            label2: new THREE.Vector3(-1, -1, 1),
+            label3: new THREE.Vector3(0, 0, -1)
+          };
+
+          Object.keys(labels).forEach(key => {
+            const label = labels[key];
+            // Simulate label positions (replace with your actual 3D model coordinates)
+            label.style.left = `${(positions[key].x + 1) * 50}%`;
+            label.style.top = `${(positions[key].y + 1) * 50}%`;
+            label.style.opacity = Math.max(0, 1 - Math.abs(positions[key].z / 2));
+          });
+        }
+
+        // Render loop
+        function animate() {
+          requestAnimationFrame(animate);
+          controls.update();
+          renderer.render(scene, camera);
+          updateLabels();
+        }
+        animate();
+      });
+    </script>
   </body>
 </html>
