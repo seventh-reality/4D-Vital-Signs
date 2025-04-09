@@ -9,6 +9,53 @@
      <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	      <style>
+        h5 {
+            text-align: center;
+            margin-top: -5px;
+            font-size: 9px;
+            color: #636363; /* Improves visibility */
+        }
+
+        .attributiontwo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .attributiontwo span {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        .attributiontwo a {
+            margin: 15px;
+            text-decoration: none; /* Removes underline */
+           -webkit-tap-highlight-color: transparent; /* Removes blue highlight */
+        }
+
+        .icon {
+            width: 43px;
+            height: 43px;            
+        }
+        .icon:hover {
+            transform: scale(1.1);         
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .attributiontwo {
+                padding: 15px;
+            }
+            .icon {
+                width: 43px;
+                height: 43px;
+            }
+        }
+    </style>
   </head>
   <body>
     <div id="card">
@@ -33,12 +80,11 @@
       
       <span>
         
-        <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing"><img src="Broucher_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 17px;padding-top: 0px;"></a>
-        <a href="https://youtu.be/feR4lDjrLt8"><img src="Video_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; "></a>
-        <a href="https://seventh-reality.com/"><img src="web_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px; "></a>
-        <a href="https://forms.gle/nPU6KsDggsqnVopt6"><img src="form_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
-        <a href="https://drive.google.com/file/d/1hFf5OK8XdV_q6UZ7WFcwiR3xrxWkUQ4Z/view?usp=sharing"><img src="analytics_1.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
-        <h5>CLICK ON THE ABOVE ICONS FOR MORE FEATURES</h5>
+        <a href="https://drive.google.com/file/d/1kpr9csFU_trpcXrLeKH5CQIM5k02qxK6/view?usp=sharing"><img src="Broucher_1.png" class="icon" ></a>
+        <a href="https://youtu.be/feR4lDjrLt8"><img src="Video_1.png" class="icon"></a>
+        <a href="https://seventh-reality.com/"><img src="web_1.png" class="icon" ></a>
+        <a href="https://forms.gle/nPU6KsDggsqnVopt6"><img src="form_1.png" class="icon" ></a>
+       
       </span>
          <style>
        h5 {
